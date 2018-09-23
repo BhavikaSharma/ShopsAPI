@@ -16,7 +16,7 @@ class Api::OrdersController < ApplicationController
 
   # POST /shops/#/orders
   def create
-    @order = Order.new(order_params) #might need to merge shop_id
+    @order = Order.new(order_params)
 
     if @order.save
       render json: @order, status: :created, location: api_shop_orders_url(@shop.id, @order.id)

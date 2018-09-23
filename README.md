@@ -1,15 +1,9 @@
-# README
+# Shops API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This Rails API was created in accordance with Shopify's Winter 2018 Challenge. The project involves a Rails App with a SQLite3 db.
 
 * Ruby version
-
-* System dependencies
-
-* Configuration
+  ruby 2.3.1p112
 
 * Database creation
 

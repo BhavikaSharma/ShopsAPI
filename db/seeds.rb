@@ -24,6 +24,13 @@ Product.create!([{
   Shop_id: 1
 }])
 
+Product.create!([{
+  id: 2,
+  name: "Lipstick",
+  price: 15.00,
+  Shop_id: 1
+}])
+
 Order.create!([{
   id: 1,
   cost: 20.00,
@@ -36,8 +43,34 @@ LineItem.create!([{
   Order_id: 1,
   Product_id: 1,
   quantity: 1,
-  price: 20.00,
-  total_cost: 20.00
+  price: 20.00
 }])
 
-p "Created #{Shop.count} shop"
+Shop.create!([{
+  id: 2,
+  name: "Shoe Store",
+  address: "456 Shoe Lane"
+}])
+
+Product.create!([{
+  id: 3,
+  name: "Flip Flops",
+  price: 13.00,
+  Shop_id: 2
+}])
+
+Order.create!([{
+  id: 2,
+  Shop_id: 2
+}])
+
+LineItem.create!([{
+  id: 2,
+  name: "Flip Flops",
+  Order_id: 2,
+  Product_id: 3,
+  quantity: 2,
+  price: 13.00
+}])
+
+p "Created #{Shop.count} shop(s)"
