@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  Product: one
+  Order: one
+  quantity: 1
+  price: 9.99
+  total_cost: 9.99
+
+two:
+  name: MyString
+  Product: two
+  Order: two
+  quantity: 1
+  price: 9.99
+  total_cost: 9.99
