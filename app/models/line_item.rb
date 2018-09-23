@@ -13,10 +13,10 @@ class LineItem < ApplicationRecord
   private
 
   def update_total_cost
-    updated_cost = Order.line_items.sum(price * quantity)
+    updated_cost = self.Order.line_items.sum(price * quantity)
 
-    Order.cost = updated_cost
-    Order.save
+    self.Order.cost = updated_cost
+    self.Order.save
   end
 
 

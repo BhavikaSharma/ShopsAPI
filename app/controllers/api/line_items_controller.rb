@@ -1,9 +1,10 @@
 class Api::LineItemsController < ApplicationController
+  before_action :set_shop, :set_order
   before_action :set_line_item, only: [:show, :update, :destroy]
 
   # GET /line_items
   def index
-    @line_items = LineItem.all
+    @line_items = @order.line_items
 
     render json: @line_items
   end
@@ -18,7 +19,7 @@ class Api::LineItemsController < ApplicationController
     @line_item = LineItem.new(line_item_params)
 
     if @line_item.save
-      render json: @line_item, status: :created, location: @line_item
+      render json: @line_item, status: :created, location: api_shop_order_line_items_url(@shop.id, @order.id, @line_item.id)
     else
       render json: @line_item.errors, status: :unprocessable_entity
     end
@@ -46,13 +47,13 @@ class Api::LineItemsController < ApplicationController
 
     def set_order
       if @shop
-        @order = @shop.orders.find_by!(id: params[:id])
+        @order = @shop.orders.find_by!(id: params[:order_id])
       end
     end
 
     def set_line_item
       if @order
-        @line_item = @order.order.find_by!(id: params[:id])
+        @line_item = @order.line_items.find_by!(id: params[:id])
       end
     end
 

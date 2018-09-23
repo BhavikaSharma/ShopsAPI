@@ -19,7 +19,7 @@ class Api::OrdersController < ApplicationController
     @order = Order.new(order_params) #might need to merge shop_id
 
     if @order.save
-      render json: @order, status: :created, location: @order
+      render json: @order, status: :created, location: api_shop_orders_url(@shop.id, @order.id)
     else
       render json: @order.errors, status: :unprocessable_entity
     end
