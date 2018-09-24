@@ -19,6 +19,34 @@ All CRUD actions are supported. This format was chosen because products will alw
 * Every time a line item is saved, the order it corresponds to will update its total cost
 * Every time a product is updated, the line numbers that correspond to that product are updated too
 
+### Sample Queries
+
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1/orders
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1/orders/1
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1/orders/1/line_items
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1/orders/1/line_items/1
+```
+```
+ curl -X GET http://35.238.181.211:3000/api/shops/1/orders/1
+```
+```
+ curl -X PATCH -H "Content-Type: application/json" -d '{"line_item": {"quantity" : "2"}}' http://35.238.181.211:3000/api/shops/1/orders/1/line_items/1
+```
+*From the last query, the total_cost of that line item, and the cost for the corresponding order should have changed
+
 ## The Database
 
 A SQLite3 db was used. db/seeds.rb provides a some data to populate the database. If the code is run locally, use "rake db:seed". It is recommended that the Kubernetes instance is used instead though.

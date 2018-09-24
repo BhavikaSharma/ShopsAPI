@@ -17,6 +17,8 @@ class LineItem < ApplicationRecord
 
     self.Order.cost = updated_cost
     self.Order.save
+
+    self.update_columns(total_cost: updated_cost)
   end
 
 
