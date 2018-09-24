@@ -2,19 +2,19 @@ class Api::OrdersController < ApplicationController
   before_action :set_shop
   before_action :set_order, only: [:show, :update, :destroy]
 
-  # GET /shops/#/orders
+  # GET /api/shops/#/orders
   def index
     @orders = @shop.orders
 
     render json: @orders
   end
 
-  # GET /shops/#/orders/1
+  # GET /api/shops/#/orders/1
   def show
     render json: @order
   end
 
-  # POST /shops/#/orders
+  # POST /api/shops/#/orders
   def create
     @order = Order.new(order_params)
 
@@ -25,7 +25,7 @@ class Api::OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shops/#/orders/1
+  # PATCH/PUT /api/shops/#/orders/1
   def update
     if @order.update(order_params)
       render json: @order
@@ -34,7 +34,7 @@ class Api::OrdersController < ApplicationController
     end
   end
 
-  # DELETE /shops/#/orders/1
+  # DELETE /api/shops/#/orders/1
   def destroy
     @order.destroy
   end

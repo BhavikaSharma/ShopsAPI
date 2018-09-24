@@ -2,19 +2,19 @@ class Api::ProductsController < ApplicationController
   before_action :set_shop
   before_action :set_product, only: [:show, :update, :destroy]
 
-  # GET /shops/#/products
+  # GET /api/shops/#/products
   def index
     @products = @shop.products
 
     render json: @products
   end
 
-  # GET /shops/#/products/1
+  # GET /api/shops/#/products/1
   def show
     render json: @product
   end
 
-  # POST /shops/#/products
+  # POST /api/shops/#/products
   def create
     @product = Product.new(product_params)
 
@@ -25,7 +25,7 @@ class Api::ProductsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shops/#/products/1
+  # PATCH/PUT /api/shops/#/products/1
   def update
     if @product.update(product_params)
       render json: @product
@@ -34,7 +34,7 @@ class Api::ProductsController < ApplicationController
     end
   end
 
-  # DELETE /shops/#/products/1
+  # DELETE /api/shops/#/products/1
   def destroy
     @product.destroy
   end

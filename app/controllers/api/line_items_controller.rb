@@ -2,19 +2,19 @@ class Api::LineItemsController < ApplicationController
   before_action :set_shop, :set_order
   before_action :set_line_item, only: [:show, :update, :destroy]
 
-  # GET /line_items
+  # GET /api/shops/#/orders/#/line_items
   def index
     @line_items = @order.line_items
 
     render json: @line_items
   end
 
-  # GET /shops/#/orders/#/line_items/1
+  # GET /api/shops/#/orders/#/line_items/1
   def show
     render json: @line_item
   end
 
-  # POST /shops/#/orders/#/line_items
+  # POST /api/shops/#/orders/#/line_items
   def create
     @line_item = LineItem.new(line_item_params)
 
@@ -25,7 +25,7 @@ class Api::LineItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shops/#/orders/#/line_items/1
+  # PATCH/PUT /api/shops/#/orders/#/line_items/1
   def update
     if @line_item.update(line_item_params)
       render json: @line_item
@@ -34,7 +34,7 @@ class Api::LineItemsController < ApplicationController
     end
   end
 
-  # DELETE /shops/#/orders/#/line_items/1
+  # DELETE /api/shops/#/orders/#/line_items/1
   def destroy
     @line_item.destroy
   end
